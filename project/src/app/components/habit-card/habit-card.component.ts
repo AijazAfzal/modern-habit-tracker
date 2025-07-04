@@ -1,9 +1,11 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Habit, HabitProgress, HabitStats } from '../../models/habit.model';
 
 @Component({
   selector: 'app-habit-card',
   standalone: true,
-  imports: const [CommonModule],
+  imports: [CommonModule],
   template: `
     <div class="habit-card" 
          [class.completed]="todayProgress?.completed"
@@ -83,7 +85,7 @@ import { Habit, HabitProgress, HabitStats } from '../../models/habit.model';
       <div class="habit-footer" *ngIf="todayProgress?.notes">
         <div class="notes-preview">
           <span class="notes-icon">📝</span>
-          <span class="notes-text">{{ todayProgress.notes }}</span>
+          <span class="notes-text">{{ todayProgress?.notes }}</span>
         </div>
       </div>
     </div>
@@ -132,8 +134,4 @@ export class HabitCardComponent {
   onDelete(): void {
     this.delete.emit();
   }
-}
-
-function Component(arg0: { selector: string; standalone: boolean; imports: any[]; template: string; styleUrls: string[]; }): (target: typeof HabitCardComponent) => void | typeof HabitCardComponent {
-  throw new Error('Function not implemented.');
 }
