@@ -45,12 +45,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: angular-build
-          path: dist/demo/browser
+          path: dist/modern-habit-tracker
 
       - name: 🚀 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/demo/browser
+          path: dist/modern-habit-tracker
 
   deploy:
     needs: build-and-deploy
